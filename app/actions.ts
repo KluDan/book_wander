@@ -7,7 +7,6 @@ import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 
 const API = process.env.API_URL;
-const token = cookies().get("Authorization")?.value;
 
 export async function register(prevState: FormState, formData: FormData) {
   const parse = registerSchema.safeParse({
@@ -99,6 +98,7 @@ export async function logout() {
 }
 
 export async function getCurrentUser() {
+  const token = cookies().get("Authorization")?.value;
   try {
     const response = await fetch(`${API}/users/current`, {
       headers: {

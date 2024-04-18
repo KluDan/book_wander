@@ -1,7 +1,9 @@
+import { InputHTMLAttributes } from "react";
+
 type TInputProps = InputHTMLAttributes<HTMLInputElement> & {
   label?: string;
   name: string;
-  type: string;
+  type: "text" | "number" | "email" | "password";
 };
 
 const Input = ({ label, name, type, ...props }: TInputProps) => {
