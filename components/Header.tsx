@@ -1,9 +1,12 @@
+import { getCurrentUser } from "@/app/actions";
 import { Logo } from "@/public/assets/icons";
 import Link from "next/link";
+import LogoutForm from "./LogoutForm";
 import BurgerMenu from "./Menu";
 import Nav from "./Nav";
 
-const Header = () => {
+const Header = async () => {
+  const user = await getCurrentUser();
   return (
     <header className="relative flex justify-between items-center bg-bgPrimary px-[20px] py-[11px] md:p-[16px] rounded-[15px]">
       <Link href="/" className="flex gap-[4px] cursor-pointer">
@@ -16,18 +19,13 @@ const Header = () => {
       <div className="flex gap-[16px] items-center">
         <div className="flex-center gap-[8px]">
           <span className="flex-center size-[40px] rounded-[50%] border border-componentStroke uppercase">
-            d
+            {user.name?.slice(0, 1).toUpperCase()}
           </span>
           <span className="hidden lg:block font-[700] tracking-[-0.02em]">
-            Danchik
+            {user.name}
           </span>
         </div>
-        <button
-          type="button"
-          className="hidden md:block py-[12px] px-[28px] rounded-[30px] border border-componentStroke tracking-[0.02em]"
-        >
-          Log out
-        </button>
+        <LogoutForm />
 
         <BurgerMenu />
       </div>

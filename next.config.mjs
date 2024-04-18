@@ -1,6 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: "export",
   distDir: "dist",
   webpack(config) {
     const fileLoaderRule = config.module.rules.find((rule) =>
@@ -25,6 +24,14 @@ const nextConfig = {
     fileLoaderRule.exclude = /\.svg$/i;
 
     return config;
+  },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "ftp.goit.study",
+      },
+    ],
   },
 };
 

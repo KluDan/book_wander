@@ -20,6 +20,9 @@ main {
     margin-top: 16px;
   }
 }
+button {
+  cursor: pointer;
+}
 
 @layer utilities {
   .wrapper {
@@ -30,5 +33,11 @@ main {
   }
   .link_after {
     @apply absolute bottom-[-8px] left-[50%] translate-x-[-50%] w-[110%] h-[3px] rounded-[8px] bg-blue-600;
+  }
+  .transition {
+    @apply transition-all ease-in-out duration-300;
+  }
+  .content_block {
+    @apply bg-bgPrimary rounded-[30px];
   }
 }
