@@ -115,3 +115,15 @@ export async function getCurrentUser() {
     throw error;
   }
 }
+
+export async function getRecommendedBooks() {
+  const token = cookies().get("Authorization")?.value;
+  const res = await fetch(`${API}/books/recommend?}`, {
+    headers: {
+      Accept: "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  return res.json();
+}
