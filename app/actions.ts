@@ -121,7 +121,7 @@ export async function getRecommendedBooks(options: SearchDataOptions) {
   const { page, limit, author = "", title = "" } = options;
   const params = new URLSearchParams({
     page: page.toString(),
-    limit: limit.toString(),
+    limit: limit?.toString() || "",
     author,
     title,
   });
