@@ -14,3 +14,10 @@ export type Book = {
   totalPages: number;
   recommend: boolean;
 };
+
+export type SearchDataOptions = {
+  page: number;
+  limit?: number;
+  author?: string;
+  title?: string;
+};

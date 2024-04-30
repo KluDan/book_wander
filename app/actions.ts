@@ -1,6 +1,6 @@
 "use server";
 
-import { FormState } from "@/lib/types";
+import { FormState, SearchDataOptions } from "@/lib/types";
 import { loginSchema, registerSchema } from "@/lib/validationSchemas";
 import { revalidatePath } from "next/cache";
 import { cookies } from "next/headers";
@@ -116,9 +116,16 @@ export async function getCurrentUser() {
   }
 }
 
-export async function getRecommendedBooks() {
+export async function getRecommendedBooks(options: SearchDataOptions) {
   const token = cookies().get("Authorization")?.value;
-  const res = await fetch(`${API}/books/recommend?}`, {
+  const { page, limit, author = "", title = "" } = options;
+  const params = new URLSearchParams({
+    page: page.toString(),
+    limit: limit.toString(),
+    author,
+    title,
+  });
+  const res = await fetch(`${API}/books/recommend?${params}`, {
     headers: {
       Accept: "application/json",
       Authorization: `Bearer ${token}`,
