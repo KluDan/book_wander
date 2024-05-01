@@ -30,12 +30,10 @@ export default async function Home({
       <Dashboard />
       <div className="flex-grow mt-[10px] xl:mt-0 py-[40px] px-[20px] md:px-[40px] rounded-[30px] bg-bgPrimary h-max">
         <div className="flex justify-between items-center  mb-[34px] md:mb-[24px]">
-          <h2 className="font-[700] text-[40px] md:text-[28px] md:leading-[114%] tracking-[-0.02em]">
-            Recommended
-          </h2>
+          <h1 className="page_title">Recommended</h1>
           <Pagination options={options} totalPages={totalPages} />
         </div>
-        <BooksList recommendedBooks={recommendedBooks} />
+        <BooksList books={recommendedBooks} page="home" />
       </div>
     </div>
   );

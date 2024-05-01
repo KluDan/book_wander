@@ -26,6 +26,8 @@ const config = {
         activeBlue: "#4f92f7",
         chartGreen: "#30b94d",
         componentStroke: "rgba(249, 249, 249, 0.2)",
+        redStroke: "rgba(232, 80, 80, 0.2)",
+        redFill: "rgba(232, 80, 80, 0.1)",
       },
       keyframes: {
         "accordion-down": {

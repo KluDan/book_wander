@@ -1,5 +1,5 @@
 import Filters from "./Filters";
-import Description from "./RecomendedDesc";
+import Description from "./RecommendedDesc";
 
 const Dashboard = () => {
   return (

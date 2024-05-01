@@ -27,9 +27,9 @@ const buttonVariants = cva(
     variants: {
       variant: {
         filled:
-          "py-[12px] px-[45px] md:py-[16px] md:px-[54px] bg-textPrimary text-bgPrimary hover:text-textPrimary hover:bg-transparent hover:border-componentStroke md:text-[20px] md:leading-[100%] focus:text-textPrimary focus:bg-transparent focus:border-componentStroke",
+          "py-[12px] px-[45px] md:py-[16px] md:px-[54px] bg-textPrimary text-bgPrimary hover:text-textPrimary hover:bg-transparent hover:border-componentStroke md:text-[20px] md:leading-[100%] focus:text-textPrimary focus:bg-transparent focus:border-componentStroke xl:focus:none",
         outlined:
-          "px-[20px] py-[10px] md:py-[12px] md:px-[28px] border-componentStroke bg-transparent text-textPrimary hover:border-transparent hover:bg-textPrimary hover:text-bgPrimary focus:border-transparent focus:bg-textPrimary focus:text-bgPrimary",
+          "px-[20px] py-[10px] md:py-[12px] md:px-[28px] border-componentStroke bg-transparent text-textPrimary hover:border-transparent hover:bg-textPrimary hover:text-bgPrimary focus:border-transparent focus:bg-textPrimary focus:text-bgPrimary xl:focus:none",
       },
     },
     defaultVariants: {

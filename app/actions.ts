@@ -134,3 +134,62 @@ export async function getRecommendedBooks(options: SearchDataOptions) {
 
   return res.json();
 }
+
+export async function addBookById(id: string) {
+  const token = cookies().get("Authorization")?.value;
+  try {
+    const response = await fetch(`${API}/books/add/${id}`, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    if (response.ok) {
+      console.log("Book added to library successfully");
+    } else {
+      console.error("Failed to add book to library");
+    }
+  } catch (error) {
+    console.error("Error:", error);
+  }
+}
+
+export async function getOwnBooks() {
+  const token = cookies().get("Authorization")?.value;
+  try {
+    const response = await fetch(`${API}/books/own`, {
+      headers: {
+        Accept: "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    if (response.ok) {
+      return response.json();
+    } else {
+      console.error("Failed to get book from library");
+    }
+  } catch (error) {
+    console.error("Error:", error);
+  }
+}
+
+export async function deleteOwnBook(id: string) {
+  const token = cookies().get("Authorization")?.value;
+  try {
+    const response = await fetch(`${API}/books/remove/${id}`, {
+      method: "DELETE",
+      headers: {
+        Accept: "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    if (response.ok) {
+      console.error("Books has been successfully deleted");
+    } else {
+      console.error("Failed to delete book from library");
+    }
+  } catch (error) {
+    console.error("Error:", error);
+  }
+}

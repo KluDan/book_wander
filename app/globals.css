@@ -40,4 +40,7 @@ button {
   .content_block {
     @apply bg-bgPrimary rounded-[30px];
   }
+  .page_title {
+    @apply font-[700] text-[20px] md:text-[28px] md:leading-[114%] tracking-[-0.02em];
+  }
 }
